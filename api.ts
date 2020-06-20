@@ -1,5 +1,7 @@
 import { Router } from "https://deno.land/x/oak@v5.2.0/mod.ts";
 
+import * as planets from "./models/planets.ts";
+
 const router = new Router();
 
 router.get("/", (ctx) => {
@@ -10,6 +12,10 @@ router.get("/", (ctx) => {
   888  888888  888     X88888  888 
   888  888"Y888888 88888P'"Y888888
   `;
+});
+
+router.get("/planets", (ctx) => {
+  ctx.response.body = planets.getAllPlanets();
 });
 
 export default router;
